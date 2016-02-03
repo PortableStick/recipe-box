@@ -3,7 +3,6 @@ import {Link} from 'react-router';
 import RecipeStore from '../stores/recipeBoxStore';
 import Actions from '../actions/recipeBoxActions';
 import toastr from 'toastr';
-import Alert from 'react-bootstrap-confirm';
 import Confirm from './modal/confirm';
 
 class RecipeDisplay extends Component {
@@ -36,14 +35,8 @@ class RecipeDisplay extends Component {
     }
 
     deleteRecipe(index) {
-        Confirm('Are you sure?', {description: 'You cannot undo this'})
-            .then(function() {
-                Actions.deleteRecipe(index);
-                toastr.success("Recipe deleted");
-                window.location = '/';
-                console.log(RecipeStore.getAllRecipes());
-            })
-            .fail(()=>{})             
+        Actions.deleteRecipe(index);
+        toastr.success("Recipe deleted");   
     }
 
     render() {
@@ -66,7 +59,7 @@ class RecipeDisplay extends Component {
                <div className="row controls">
                     <Link to="/" className="col-xs-3 btn btn-default">Back to Recipes</Link>
                     <Link to={"/editRecipe/" + this.props.params.id} className="col-xs-3 col-md-offset-3 btn btn-default">Edit Recipe</Link>
-                    <div className="col-xs-3 btn btn-danger" onClick={this.deleteRecipe.bind(this, this.props.params.id)}>Delete Recipe</div>
+                    <Link to="/" className="col-xs-3 btn btn-danger" onClick={this.deleteRecipe.bind(this, this.props.params.id)}>Delete Recipe</Link>
                </div>
             </div>
 
