@@ -18,7 +18,8 @@ class RecipeForm extends Component {
                 ],
                 "instructions": [""],
                 "description": ""
-            }
+            },
+            lastIndex: ''
         };
     }
 
@@ -26,6 +27,24 @@ class RecipeForm extends Component {
         if(this.props.params.id) {
             this.setState({
                 recipe: RecipeStore.getRecipeByIndex(this.props.params.id)
+            });
+        } else {
+            this.setState({
+                lastIndex: RecipeStore.getLastIndex()
+            });
+        }
+    }
+
+    setOptional(index, event) {
+        if(event.target.checked) {
+            this.state.recipe.ingredients[index].optional = true;
+            this.setState({
+                recipe: this.state.recipe
+            });
+        } else {
+            this.state.recipe.ingredients[index].optional = false;
+            this.setState({
+                recipe: this.state.recipe
             });
         }
     }
@@ -61,7 +80,6 @@ class RecipeForm extends Component {
             return x.length > 0;
         });
 
-        console.log(this.state.recipe);
 
         if(this.props.params.id) {
             //update existing recipe
@@ -104,11 +122,15 @@ class RecipeForm extends Component {
         }
 
         return (
-            <div className="form-group" key={"group" + index}>
-          
-                <input key={index+"nameInput"} type="text" className="form-control" placeholder="Ingredient" value={ingredient.ingredientName} name="ingredientName" onChange={this.updateIngredients.bind(this, index)} />
-                <input  key={index+"quantityInput"} type="text" className="form-control" placeholder="Quantity" value={ingredient.quantity} name="quantity" onChange={this.updateIngredients.bind(this, index)} />
-   
+            <div key={"group" + index} className="form-group form-inline">
+                <div className="form-group">
+                    <input key={index+"nameInput"} type="text" className="form-control" placeholder="Ingredient" value={ingredient.ingredientName} name="ingredientName" onChange={this.updateIngredients.bind(this, index)} />
+                    <input  key={index+"quantityInput"} type="text" className="form-control" placeholder="Quantity" value={ingredient.quantity} name="quantity" onChange={this.updateIngredients.bind(this, index)} />
+                </div>
+                <div className="form-group">
+                    <input key={index+"optionalCheckbox"+ingredient.ingredientName} type="checkbox" name="optionalCheckbox" onChange={this.setOptional.bind(this, index)} checked={ingredient.optional ? true : null}/>
+                    <label for="optionalCheckbox">optional?</label>
+                </div>
                 <Button />
             </div>
         )
@@ -136,7 +158,6 @@ class RecipeForm extends Component {
 
 
     render() {
-
         return (
             <div className="container">
                 <form>
@@ -153,7 +174,7 @@ class RecipeForm extends Component {
                 </form>
                 <div className="controls row">
                     <Link to={this.props.params.id ? "/recipe/" + this.props.params.id : "/"} className="btn btn-danger col-xs-12 col-md-4">Cancel</Link>
-                    <Link to="/" className="btn btn-success col-xs-12 col-md-4 col-md-offset-4" onClick={this.saveRecipe}>Save</Link>
+                    <Link to={this.props.params.id ? "/recipe/" + this.props.params.id : "/recipe/" + this.state.lastIndex} className="btn btn-success col-xs-12 col-md-4 col-md-offset-4" onClick={this.saveRecipe}>Save</Link>
                 </div>
             </div>
         );    

@@ -17,7 +17,7 @@ class RecipeDisplay extends Component {
     createIngredientsList(ingredient, index) {
         return (
             <div className="col-xs-12 col-md-6 ingredient" key={ingredient.ingredientName + 'group'}>
-                <span className="ingredient-name" key={ingredient.ingredientName + index}>{ingredient.ingredientName}</span>: <span className="ingredient-quantity" key={ingredient.quantity}>{ingredient.quantity}</span>
+                <span className="ingredient-name" key={ingredient.ingredientName + index}>{ingredient.ingredientName}</span>: <span className="ingredient-quantity" key={ingredient.quantity}>{ingredient.quantity}</span><span className={ingredient.optional ? "optional" : "hidden"}> - optional</span>
             </div>
         );
     }

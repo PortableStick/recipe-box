@@ -26,6 +26,9 @@ const recipeBoxStore = Object.assign({}, EventEmitter.prototype, {
 
     getRecipeByIndex: function(index) {
         return _recipes[index];
+    },
+    getLastIndex: function() {
+        return _recipes.length;
     }
 });
 
