@@ -1,0 +1,28 @@
+/* Color declarations
+================================ */
+$lightKhaki: #D9C2BA;
+$darkKhaki: #A6907C;
+$brown: #A6907C;
+$tan: #BF9D95;
+$seagreen: #537355;
+$white: #fff;
+$fontGrey: #999;
+
+/* Color assignments
+================================ */
+
+$bodyBG: $lightKhaki;
+$containerBG: $darkKhaki;
+$tableBG: $white;
+$headerCellBG: $seagreen;
+$sortHoverBG: lighten($headerCellBG, 10%);
+$sortedByFontColor: $white;
+$sortedHeaderBG: $brown;
+$mainFontColor: $white;
+$recipeBorderColor: $seagreen;
+$recipeItemFontColor: $white;
+$recipeItemBG: $seagreen;
+$recipeItemHoverBG: darken($recipeItemBG, 5%);
+$ingredientColor: $fontGrey;
+$instructionsColor: darken($ingredientColor, 20%);
+$descriptionColor: darken($fontGrey, 10%);

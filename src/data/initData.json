@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Ramen Noodles",
+        "ingredients": [
+            {
+                "ingredientName": "prepackaged ramen",
+                "quantity": "1 package"
+            },
+            {
+                "ingredientName": "boiling water",
+                "quantity": "8 oz."
+            }
+        ],
+        "instructions": ["Set water to a rolling boil", "Place noodles into pot with boiling water", "Boil for 5 minutes or to taste", "Drain noodles and add seasoning"],
+        "description": "An American noodle dish popular with young students"
+    },
+    {
+        "name": "Brain lube",
+        "ingredients": [{
+            "ingredientName": "Ground coffee",
+            "quantity": "3 tbsp"
+            },
+            {
+                "ingredientName": "Water",
+                "quantity": "6 oz."
+            }
+        ],
+        "instructions": ["Find someone who can operate the coffee maker", "Hand them the ingredients", "Stare at them expectantly until they hand you a cup of coffee"],
+        "description": "Traditional productivity tonic"
+    },
+    {
+        "name": "Quesedilla",
+        "ingredients": [
+            {
+                "ingredientName": "torillas",
+                "quantity": "2"
+            },
+            {
+                "ingredientName": "cheese",
+                "quantity": "1/4 cup (or to taste)"
+            },
+            {
+                "optional": true,
+                "ingredientName": "onions",
+                "quantity": "1 oz."
+            }
+        ],
+        "instructions": ["Place cheese and onions between the tortillas", "Microwave on high for 1 minute"],
+        "description": ""
+    }
+]

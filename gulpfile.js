@@ -8,7 +8,8 @@ const gulp = require('gulp'),
       lint = require('gulp-eslint'),
       sourcemaps = require('gulp-sourcemaps'),
       friendlyFormatter = require('eslint-friendly-formatter'), //export EFF_NO_GRAY=true in console if you can't see the output
-      sass = require('gulp-sass');
+      sass = require('gulp-sass'),
+      historyApiFallback = require('connect-history-api-fallback');
 
 const config = {
     port: 9000,
@@ -21,7 +22,8 @@ const config = {
             'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'node_modules/bootstrap/dist/css/bootstrap.min.css.map',
             'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
-            'node_modules/bootstrap/dist/css/bootstrap-theme.min.css.map'
+            'node_modules/bootstrap/dist/css/bootstrap-theme.min.css.map',
+            'node_modules/toastr/package/build/toastr.min.css',
         ],
         dist: './dist',
         images: './src/images/*',
@@ -34,7 +36,19 @@ gulp.task('connect', () => {
         root: ['dist'],
         port: config.port,
         base: config.devBaseUrl,
-        livereload: true
+        livereload: true,
+        middleware: (connect, opt) => {
+            return [historyApiFallback({
+                rewrites: [
+                    {
+                        from: /^.*?\/(css|scripts)\/(.*)$/i,
+                        to: (context) => {
+                            return '/' + context.match[1] + '/' + context.match[2];
+                        }
+                    }
+                ]
+            })];
+        }
     });
 });
 

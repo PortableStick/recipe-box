@@ -1,0 +1,78 @@
+@import '_variables.scss';
+
+.navbar-nav {
+    padding: 0 15px;
+    font-size: 1.3em;
+}
+
+.recipeItem {
+    list-style: none;
+    border: 1px solid $recipeBorderColor;
+    font-size: 1.7em;
+    text-align: center;
+    background-color: $recipeItemBG;
+    margin: 5px;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: $recipeItemHoverBG;
+    }
+
+    a {
+        color: $recipeItemFontColor;
+        display: block;
+        padding: 10px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+}
+
+.recipeDescription {
+    font-style: italic;
+    &::before {
+        content: ' - ';
+    }
+}
+
+
+.recipe-container {
+    height: 15vh;
+    h1, h4 {
+        text-align: center;
+    }
+
+    h4 {
+        color: $descriptionColor;
+        font-style: italic;
+    }
+
+    .ingredient {
+        font-size: 1.3em;
+        color: $ingredientColor;
+        text-align: center;
+    }
+
+    .ingredients {
+        height: 100%;
+        margin-top: 15px;
+        text-align: center;
+    }
+}
+
+.instructions {
+    h3 {
+        text-align: center;
+    }
+    font-size: 1.5em;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: $instructionsColor;
+}
+
+.controls {
+    margin-top: 25%;
+}
+
+.addRecipe {
+    font-size: 1.4em;
+}
