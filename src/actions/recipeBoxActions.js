@@ -27,7 +27,6 @@ const recipeBoxActions = {
             actionType: ActionTypes.CREATE_RECIPE,
             newRecipe: newRecipe
         }
-
         Dispatcher.dispatch(payload);
     },
 

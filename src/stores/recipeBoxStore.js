@@ -32,6 +32,10 @@ const recipeBoxStore = Object.assign({}, EventEmitter.prototype, {
     }
 });
 
+const setRecipes = () => {
+    let recipesToStore = JSON.stringify(_recipes);
+    localStorage.setItem('recipes', recipesToStore);
+};
 
 Dispatcher.register((payload) => {
     switch(payload.actionType) {
@@ -42,14 +46,17 @@ Dispatcher.register((payload) => {
         case ActionTypes.CREATE_RECIPE:
             _recipes.push(payload.newRecipe);
             recipeBoxStore.emitChange();
+            setRecipes();
             break;
         case ActionTypes.UPDATE_RECIPE:
             _recipes[payload.index] = payload.recipe;
             recipeBoxStore.emitChange();
+            setRecipes();
             break;
         case ActionTypes.DELETE_RECIPE:
             _recipes.splice(payload.index, 1);
-            recipeBoxStore.emitChange()
+            recipeBoxStore.emitChange();
+            setRecipes();
             break;
         default:
     }
