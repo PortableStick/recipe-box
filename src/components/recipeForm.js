@@ -5,7 +5,7 @@ import Actions from '../actions/recipeBoxActions';
 import toastr from 'toastr';
 
 class RecipeForm extends Component {
-    
+
     constructor() {
         super();
         this.state = {
@@ -150,7 +150,7 @@ class RecipeForm extends Component {
 
         return (
             <div className="form-group" key={"step" + index}>
-                <input key={"keystep" + num} type="text" className="form-control" placeholder={"step " + num} value={instruction} name="instruction" onChange={this.updateInstructions.bind(this, index)} /> 
+                <input key={"keystep" + num} type="text" className="form-control" placeholder={"step " + num} value={instruction} name="instruction" onChange={this.updateInstructions.bind(this, index)} />
                 <Button />
             </div>
         );
@@ -177,7 +177,7 @@ class RecipeForm extends Component {
                     <Link to={this.props.params.id ? "/recipe/" + this.props.params.id : "/recipe/" + this.state.lastIndex} className="btn btn-success col-xs-12 col-md-4 col-md-offset-4" onClick={this.saveRecipe}>Save</Link>
                 </div>
             </div>
-        );    
+        );
     }
 }
 
