@@ -2,16 +2,11 @@ import React, {Component} from 'react';
 import Header from './header';
 import RecipeBoxManager from './recipeBoxManager';
 
-class App extends Component {
-    
-    render() {
-        return (
+const App = (props) => (
             <div>
                 <Header />
-                {this.props.children}
+                {props.children}
             </div>
         );
-    }
-}
 
 export default App;

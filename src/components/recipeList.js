@@ -1,27 +1,22 @@
 import React, {Component, PropTypes} from 'react';
 import RecipeItem from './recipeItem';
 
-class RecipeList extends Component {
+function createRecipeList(recipeItem, index) {
+    return (
+        <RecipeItem recipeItem={recipeItem} index={index} key={index * (Math.random() + 1)}/>
+    );
+}
 
-    static propTypes = {
-        recipeItems: PropTypes.array.isRequired
-    };
-
-    createRecipeList(recipeItem, index) {
-        return (
-            <RecipeItem recipeItem={recipeItem} index={index} />
-        );
-    }
-    
-    render() {
-        return (
+const RecipeList = (props) => (
             <div>
                 <ul>
-                    {this.props.recipeItems.map(this.createRecipeList)}
+                    {props.recipeItems.map(createRecipeList)}
                 </ul>
             </div>
         );
-    }
-}
+
+RecipeList.propTypes = {
+    recipeItems: PropTypes.array.isRequired
+};
 
 export default RecipeList;
