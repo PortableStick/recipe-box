@@ -173,8 +173,8 @@ class RecipeForm extends Component {
                     {this.state.recipe.instructions.map(this.createInstructionList)}
                 </form>
                 <div className="controls row">
-                    <Link to={this.props.params.id ? "/recipe/" + this.props.params.id : "/"} className="btn btn-danger col-xs-12 col-md-4">Cancel</Link>
-                    <Link to={this.props.params.id ? "/recipe/" + this.props.params.id : "/recipe/" + this.state.lastIndex} className="btn btn-success col-xs-12 col-md-4 col-md-offset-4" onClick={this.saveRecipe}>Save</Link>
+                    <Link to={this.props.params.id ? "recipe/" + this.props.params.id : "/recipe-box"} className="btn btn-danger col-xs-12 col-md-4">Cancel</Link>
+                    <Link to={this.props.params.id ? "recipe/" + this.props.params.id : "recipe/" + this.state.lastIndex} className="btn btn-success col-xs-12 col-md-4 col-md-offset-4" onClick={this.saveRecipe}>Save</Link>
                 </div>
             </div>
         );

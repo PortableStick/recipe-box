@@ -11,7 +11,7 @@ import NotFoundPage from './components/notFoundPage';
 RecipeBoxActions.init();
 
 ReactDOM.render(<Router history={browserHistory}>
-                    <Route path="/" component={App}>
+                    <Route path="/recipe-box" component={App}>
                         <IndexRoute component={RecipeBoxManager} />
                         <Route path="/recipe/:id" component={RecipeDisplay} />
                         <Route path="/addRecipe" component={RecipeForm} />

@@ -36,7 +36,7 @@ class RecipeDisplay extends Component {
 
     deleteRecipe(index) {
         Actions.deleteRecipe(index);
-        toastr.success("Recipe deleted");   
+        toastr.success("Recipe deleted");
     }
 
     render() {
@@ -57,9 +57,9 @@ class RecipeDisplay extends Component {
                     </ol>
                 </div>
                <div className="row controls">
-                    <Link to="/" className="col-xs-3 btn btn-default">Back to Recipes</Link>
+                    <Link to="/recipe-box/" className="col-xs-3 btn btn-default">Back to Recipes</Link>
                     <Link to={"/editRecipe/" + this.props.params.id} className="col-xs-3 col-md-offset-3 btn btn-default">Edit Recipe</Link>
-                    <Link to="/" className="col-xs-3 btn btn-danger" onClick={this.deleteRecipe.bind(this, this.props.params.id)}>Delete Recipe</Link>
+                    <Link to="/recipe-box/" className="col-xs-3 btn btn-danger" onClick={this.deleteRecipe.bind(this, this.props.params.id)}>Delete Recipe</Link>
                </div>
             </div>
 
